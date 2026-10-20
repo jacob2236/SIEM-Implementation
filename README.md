@@ -8,3 +8,6 @@ This will be a Windows SIEM-Implementation, following this work flow:
 - Build informative dashboards displaying active alert timelines, affected hosts, and overall event severity.
 
 This repository will be the project base, clone into it and create your own separate branch where you can implement a specific component of the SIEM / attacking scripts and we can merge them into main when we think a component is done. Base VM will more than likley use Wazuh, so we can plan to interact with this software for our simulate attack
+
+This task list is really just a guideline so that we don't step on each others toes so don't stress on "taking a task" just type what your doing here so that we all know what each other are doing
++ Jacob - implement a base VM as the defender using Wazuh software
