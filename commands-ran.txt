@@ -1,0 +1,23 @@
+// How I set up my Wazuh Docker container
+// Once all set up Wazuh can be found at https://localhost
+
+//had to go to C drive for permissions on my machine and made a folder to hold the files
+cd C:\cyber-final-docker
+
+// cloned wazuh GitHub version 4.14.6
+git clone https://github.com/wazuh/wazuh-docker.git -b v4.14.6
+cd wazuh-docker/single-node
+
+// Run this before docker compose
+wsl -d docker-desktop sysctl -w vm.max_map_count=262144 // NOTE THIS IS USING WSL because that is what my machine uses for windows
+
+// docker compose command
+docker compose -f generate-indexer-certs.yml run --rm --user root generator
+docker compose up -d
+
+// IF YOU GET PORT ERRORS: You need to edit the port numbers to ports that are not blocked on your own system docker-compose.yml file within the single-node directory, here are the ports I used
+ports:
+      - "1514:1514"
+      - "1515:1515"
+      - "514:514/udp"
+      - "56000:55000"
